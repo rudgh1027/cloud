@@ -112,15 +112,6 @@ func azure functionapp publish <FunctionAppName>
 </code></pre>
 ### Test_2
 Go to "~/source/azure/001.queueTriggeredFunction/sender/
-Open Program.cs
-<pre><code>
-...
-      static string ServiceBusConnectionString="....";
-      static string QueueName="..."; 
-...
-</code></pre>
-Insert your queue name and connectionString.
-Save and run "dotnet run"
 <pre><code>
 # bash
 dotnet run
