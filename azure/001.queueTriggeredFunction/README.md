@@ -85,7 +85,7 @@ namespace funcgkim0012
 </code></pre>
 ## Local Build
 <pre><code>
-\# bash
+## bash
 func start --build
 </code></pre>
 ### Test_1
@@ -104,12 +104,14 @@ Save and run "dotnet run"
 dotnet run
 </code></pre>
 In your terminal running azure function app project, you can see a message log.
+
 ## Deploy To Azure Function
 Go to "~/source/azure/001.queueTriggeredFunction/{FunctionAppName}"
 <pre><code>
 ## bash
 func azure functionapp publish {FunctionAppName}
 </code></pre>
+
 ### Test_2
 Go to "~/source/azure/001.queueTriggeredFunction/sender/"
 <pre><code>
