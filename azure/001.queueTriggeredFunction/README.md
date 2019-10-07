@@ -90,7 +90,7 @@ func start --build
 </code></pre>
 ### Test_1
 Go to "~/source/azure/001.queueTriggeredFunction/sender/
-Open Program.cs
+<p>Open Program.cs</p>
 <pre><code>
 ...
       static string ServiceBusConnectionString="....";
@@ -105,7 +105,7 @@ dotnet run
 </code></pre>
 In your terminal running azure function app project, you can see a message log.
 ## Deploy To Azure Function
-Go to "~/source/azure/001.queueTriggeredFunction/<FunctionAppName>/
+Go to "~/source/azure/001.queueTriggeredFunction/<FunctionAppName>
 <pre><code>
 # bash
 func azure functionapp publish <FunctionAppName>
