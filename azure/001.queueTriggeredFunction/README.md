@@ -24,9 +24,9 @@ vi exported.dat
 ## Deploy Service Bus Queue and Azure Function App
 Just run
 <pre><code>
-# deploy queue
+\# deploy queue
 ./deployq.sh
-# deploy function app
+\# deploy function app
 ./deployFunc.sh
 </code></pre>
 ## Make Project
@@ -85,7 +85,7 @@ namespace funcgkim0012
 </code></pre>
 ## Local Build
 <pre><code>
-# bash
+\# bash
 func start --build
 </code></pre>
 ### Test_1
@@ -100,19 +100,19 @@ Go to "~/source/azure/001.queueTriggeredFunction/sender/
 Insert your queue name and connectionString.
 Save and run "dotnet run"
 <pre><code>
-# bash
+\# bash
 dotnet run
 </code></pre>
 In your terminal running azure function app project, you can see a message log.
 ## Deploy To Azure Function
 Go to "~/source/azure/001.queueTriggeredFunction/{FunctionAppName}
 <pre><code>
-# bash
+\# bash
 func azure functionapp publish {FunctionAppName}
 </code></pre>
 ### Test_2
 Go to "~/source/azure/001.queueTriggeredFunction/sender/
 <pre><code>
-# bash
+\# bash
 dotnet run
 </code></pre>
