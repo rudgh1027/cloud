@@ -24,20 +24,20 @@ vi exported.dat
 ## Deploy Service Bus Queue and Azure Function App
 Just run
 <pre><code>
-\# deploy queue
+## deploy queue
 ./deployq.sh
-\# deploy function app
+## deploy function app
 ./deployFunc.sh
 </code></pre>
 ## Make Project
 <pre><code>
 ./makeProj.sh
-# Select a worker runtime:
-# 1. dotnet
-# 2. node
-# 3. python
-# 4. powershell (preview)
-# Choose option: 1            #Select 1
+## Select a worker runtime:
+## 1. dotnet
+## 2. node
+## 3. python
+## 4. powershell (preview)
+## Choose option: 1            #Select 1
 </code></pre>
 ## Editting {FunctionAppName}.cs Source
 Now we can see Visual Studio code edittor.
@@ -89,7 +89,7 @@ namespace funcgkim0012
 func start --build
 </code></pre>
 ### Test_1
-Go to "~/source/azure/001.queueTriggeredFunction/sender/
+Go to "~/source/azure/001.queueTriggeredFunction/sender/"
 <p>Open Program.cs</p>
 <pre><code>
 ...
@@ -100,19 +100,19 @@ Go to "~/source/azure/001.queueTriggeredFunction/sender/
 Insert your queue name and connectionString.
 Save and run "dotnet run"
 <pre><code>
-\# bash
+## bash
 dotnet run
 </code></pre>
 In your terminal running azure function app project, you can see a message log.
 ## Deploy To Azure Function
-Go to "~/source/azure/001.queueTriggeredFunction/{FunctionAppName}
+Go to "~/source/azure/001.queueTriggeredFunction/{FunctionAppName}"
 <pre><code>
-\# bash
+## bash
 func azure functionapp publish {FunctionAppName}
 </code></pre>
 ### Test_2
-Go to "~/source/azure/001.queueTriggeredFunction/sender/
+Go to "~/source/azure/001.queueTriggeredFunction/sender/"
 <pre><code>
-\# bash
+## bash
 dotnet run
 </code></pre>
