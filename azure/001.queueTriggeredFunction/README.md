@@ -1,6 +1,4 @@
-# Overview
-## Topic
-Queue Triggered Service Bus Queue
+# Queue Triggered Service Bus Queue
 ## Architecture
 <img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-pattern.png"></img>
 <br/>
