@@ -10,8 +10,8 @@ namespace sender
 {
     class Program
     {
-        static string ServiceBusConnectionString="Endpoint=sb://ns-gkim-test-01.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=aQLrac5FTrZimq4sVPfrEVEwq8XOLCgPYwGcYJxrnbc=";
-        static string QueueName="q-gkim-test-01"; 
+        static string ServiceBusConnectionString="Endpoint=sb://ns-gkim-1234.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=z2jvB0kYmWoCsKFCAmwMsWqdKEB3PtBNOw9UCGUsBc4=";
+        static string QueueName="q-gkim-39023"; 
         static IQueueClient queueClient;
 
         static void Main(string[] args)

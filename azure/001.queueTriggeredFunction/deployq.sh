@@ -1,4 +1,4 @@
-# Create a resource group
+# Initailize Parameters
 resourcegroupName=`cat exported.dat | grep resourcegroupName | awk -F "=" '{printf $2}'`
 location=`cat exported.dat | grep location | awk -F "=" '{printf $2}'`
 namespaceName=`cat exported.dat | grep namespaceName | awk -F "=" '{printf $2}'`
@@ -17,4 +17,5 @@ az servicebus queue create --resource-group $resourcegroupName --namespace-name 
 # Get the connection string for the namespace
 connectionString=$(az servicebus namespace authorization-rule keys list --resource-group $resourcegroupName --namespace-name $namespaceName --name RootManageSharedAccessKey --query primaryConnectionString --output tsv)
 
+# Export ConnectionString
 echo $connectionString > ./conn.dat

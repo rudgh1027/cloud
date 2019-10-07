@@ -9,3 +9,14 @@
 /home/gkmon/queue/sender/bin/Debug/netcoreapp2.2/sender.pdb
 /home/gkmon/queue/sender/obj/Debug/netcoreapp2.2/sender.dll
 /home/gkmon/queue/sender/obj/Debug/netcoreapp2.2/sender.pdb
+/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/bin/Debug/netcoreapp2.2/sender.deps.json
+/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/bin/Debug/netcoreapp2.2/sender.runtimeconfig.json
+/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/bin/Debug/netcoreapp2.2/sender.runtimeconfig.dev.json
+/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/bin/Debug/netcoreapp2.2/sender.dll
+/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/bin/Debug/netcoreapp2.2/sender.pdb
+/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/obj/Debug/netcoreapp2.2/sender.csprojAssemblyReference.cache
+/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/obj/Debug/netcoreapp2.2/sender.csproj.CoreCompileInputs.cache
+/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/obj/Debug/netcoreapp2.2/sender.AssemblyInfoInputs.cache
+/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/obj/Debug/netcoreapp2.2/sender.AssemblyInfo.cs
+/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/obj/Debug/netcoreapp2.2/sender.dll
+/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/obj/Debug/netcoreapp2.2/sender.pdb

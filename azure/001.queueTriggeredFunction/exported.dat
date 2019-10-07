@@ -1,7 +1,7 @@
-resourcegroupName=
-location=
-namespaceName=
-qname=
-storageaccName=
-funcName=
-projName=
+resourcegroupName=rg-gkim-11202
+location=westus2
+namespaceName=ns-gkim-1234
+qname=q-gkim-39023
+storageaccName=storaccgkim123
+funcName=funcgkim0012
+projName=funcgkim0012

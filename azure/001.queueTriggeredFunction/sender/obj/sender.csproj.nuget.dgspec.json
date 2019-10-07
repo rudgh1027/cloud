@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/gkmon/queue/sender/sender.csproj": {}
+    "/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/sender.csproj": {}
   },
   "projects": {
-    "/home/gkmon/queue/sender/sender.csproj": {
+    "/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/sender.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gkmon/queue/sender/sender.csproj",
+        "projectUniqueName": "/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/sender.csproj",
         "projectName": "sender",
-        "projectPath": "/home/gkmon/queue/sender/sender.csproj",
+        "projectPath": "/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/sender.csproj",
         "packagesPath": "/home/gkmon/.nuget/packages/",
-        "outputPath": "/home/gkmon/queue/sender/obj/",
+        "outputPath": "/home/gkmon/cloud/azure/001.queueTriggeredFunction/sender/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
