@@ -1,7 +1,9 @@
 # Queue Triggered Service Bus Queue
+
 ## Architecture
 <img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-pattern.png"></img>
 <p>We are going to make <b>dotnet console application as task</b>, <b>azure function app as service</b>.</p>
+
 # Procedure
 ## Get source from github
 <pre><code>
@@ -13,11 +15,13 @@ echo "azure/001.queueTriggeredFunction/*" >> .git/info/sparse-checkout
 git pull origin master
 cd azure/001.queueTriggeredFunction/
 </code></pre>
+
 ## Editting Parameter Name
 <pre><code>
 ## complete names of resources
 vi exported.dat
 </code></pre>
+
 ## Deploy Service Bus Queue and Azure Function App
 Just run
 <pre><code>
@@ -26,6 +30,7 @@ Just run
 ## deploy function app
 ./deployFunc.sh
 </code></pre>
+
 ## Make Project
 <pre><code>
 ./makeProj.sh
@@ -36,6 +41,7 @@ Just run
 ## 4. powershell (preview)
 ## Choose option: 1            #Select 1
 </code></pre>
+
 ## Editting {FunctionAppName}.cs Source
 Now we can see Visual Studio code edittor.
 Open (projectname).cs
@@ -80,11 +86,13 @@ namespace funcgkim0012
     }
 }
 </code></pre>
+
 ## Local Build
 <pre><code>
 ## bash
 func start --build
 </code></pre>
+
 ### Test_1
 Go to "~/source/azure/001.queueTriggeredFunction/sender/"
 <p>Open Program.cs</p>
