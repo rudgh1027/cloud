@@ -2,7 +2,6 @@
 ##Topic
 Queue Triggered Service Bus Queue
 ##architecture
-
 #Procedure
 ##Editting Parameter Name
 Queue Triggered Service Bus Queue
