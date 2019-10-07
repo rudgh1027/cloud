@@ -39,7 +39,7 @@ Just run
 # 4. powershell (preview)
 # Choose option: 1            #Select 1
 </code></pre>
-## Editting <FunctionAppName>.cs Source
+## Editting \<FunctionAppName\>.cs Source
 Now we can see Visual Studio code edittor.
 Open (projectname).cs
 <pre><code>
@@ -105,7 +105,7 @@ dotnet run
 </code></pre>
 In your terminal running azure function app project, you can see a message log.
 ## Deploy To Azure Function
-Go to "~/source/azure/001.queueTriggeredFunction/<FunctionAppName>
+Go to "~/source/azure/001.queueTriggeredFunction/\<FunctionAppName\>
 <pre><code>
 # bash
 func azure functionapp publish <FunctionAppName>
