@@ -1,8 +1,7 @@
 # Queue Triggered Service Bus Queue
 ## Architecture
 <img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-pattern.png"></img>
-<br/>
-We are going to make *dotnet console application as task*, *azure function app as service*.
+<p>We are going to make <b>dotnet console application as task</b>, <b>azure function app as service</b>.</p>
 # Procedure
 ## Get source from github
 <pre><code>
