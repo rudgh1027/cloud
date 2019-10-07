@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/gkmon/cloud/azure/002.queueTriggeredFunction_tableInsert/sender/sender.csproj": {}
+  },
+  "projects": {
+    "/home/gkmon/cloud/azure/002.queueTriggeredFunction_tableInsert/sender/sender.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/gkmon/cloud/azure/002.queueTriggeredFunction_tableInsert/sender/sender.csproj",
+        "projectName": "sender",
+        "projectPath": "/home/gkmon/cloud/azure/002.queueTriggeredFunction_tableInsert/sender/sender.csproj",
+        "packagesPath": "/home/gkmon/.nuget/packages/",
+        "outputPath": "/home/gkmon/cloud/azure/002.queueTriggeredFunction_tableInsert/sender/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/home/gkmon/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.Azure.ServiceBus": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

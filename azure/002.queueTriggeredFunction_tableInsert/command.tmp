@@ -1,0 +1,4 @@
+func start --build
+func azure functionapp publish <FunctionAppName>
+npm install -g azure-functions-core-tools
+
