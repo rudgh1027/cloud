@@ -6,9 +6,10 @@
 
 # Procedure
 <p>This pratice is optimized for <b>bash shell and azure cli in Azure Cloud Shell.</b> Go to azure portal and run azure cloud shell</p>
+
 ## Get source from github
 <pre><code>
-git init source ## source can be replaced with what you want
+git init {source}           #{source} can be replaced with other directory name you want
 cd source
 git remote add -f origin https://github.com/rudgh1027/cloud.git
 git config core.sparseCheckout true
