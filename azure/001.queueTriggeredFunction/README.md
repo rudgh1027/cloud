@@ -5,6 +5,7 @@
 <p>We are going to make <b>dotnet console application as task</b>, <b>azure function app as service</b>.</p>
 
 # Procedure
+<p>This pratice is optimized for <b>bash shell and azure cli in Azure Cloud Shell.</b> Go to azure portal and run azure cloud shell</p>
 ## Get source from github
 <pre><code>
 git init source ## source can be replaced with what you want
