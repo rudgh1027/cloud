@@ -1,4 +1,4 @@
-# Queue Triggered Service Bus Queue
+# Queue Triggered Azure Function App
 
 ## Architecture
 <img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-pattern.png"></img>
