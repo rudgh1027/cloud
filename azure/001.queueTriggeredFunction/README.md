@@ -97,15 +97,16 @@ func start --build
 
 ### Test_1
 Go to "~/source/azure/001.queueTriggeredFunction/sender/"
-<p>Open Program.cs</p>
+<p>Open Program.cs and insert your queue name and connectionString.</p>
 <pre><code>
 ...
       static string ServiceBusConnectionString="....";
       static string QueueName="..."; 
 ...
 </code></pre>
-Insert your queue name and connectionString.
+
 Save and run "dotnet run"
+
 <pre><code>
 ## bash
 dotnet run
