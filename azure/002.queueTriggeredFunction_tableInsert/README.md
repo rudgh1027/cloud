@@ -1,50 +1,20 @@
-# Queue Triggered Service Bus Queue
+# Queue Triggered and inserting to Table Storage Function App
 
 ## Architecture
-<img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-pattern.png"></img>
-<p>We are going to make <b>dotnet console application as task</b>, <b>azure function app as service</b>.</p>
+<img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-function.png"></img>
+<p>It implements <b>https://github.com/rudgh1027/cloud/tree/master/azure/001.queueTriggeredFunction</b></p>
+<p>So, you must create all resource and dotnet application project in previous posting, <b>https://github.com/rudgh1027/cloud/tree/master/azure/001.queueTriggeredFunction</b></p>
 
 # Procedure
-## Get source from github
-<pre><code>
-git init source ## source can be replaced with what you want
-cd source
-git remote add -f origin https://github.com/rudgh1027/cloud.git
-git config core.sparseCheckout true
-echo "azure/001.queueTriggeredFunction/*" >> .git/info/sparse-checkout
-git pull origin master
-cd azure/001.queueTriggeredFunction/
-</code></pre>
+If you complete all procedure in privious posting, comtinue following procedure.
 
-## Editting Parameter Name
-<pre><code>
-## complete names of resources
-vi exported.dat
-</code></pre>
+## Deploy Table Storage
 
-## Deploy Service Bus Queue and Azure Function App
-Just run
-<pre><code>
-## deploy queue
-./deployq.sh
-## deploy function app
-./deployFunc.sh
-</code></pre>
-
-## Make Project
-<pre><code>
-./makeProj.sh
-## Select a worker runtime:
-## 1. dotnet
-## 2. node
-## 3. python
-## 4. powershell (preview)
-## Choose option: 1            #Select 1
-</code></pre>
 
 ## Editting {FunctionAppName}.cs Source
-Now we can see Visual Studio code edittor.
-Open (projectname).cs
+<p>Open (projectname).cs</p>
+<p>Now our codes are</p> 
+
 <pre><code>
 using System;
 using Microsoft.Azure.WebJobs;
@@ -56,18 +26,15 @@ namespace funcgkim0012
     public static class funcgkim0012
     {
         [FunctionName("funcgkim0012")]
-        public static void Run([ServiceBusTrigger("myqueue", Connection = "")]string myQueueItem, ILogger log)
+        public static void Run([ServiceBusTrigger("yourqueuename", Connection = "MyServiceBusConnection")]string myQueueItem, ILogger log)
         {
             log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
         }
     }
 }
 </code></pre>
-<p>Replace myqueue with your queue name in your sesrvice bus namespace.
-In my code, I already define connectionString name, <b>MyServiceBusConnection</b>.
-So replace "" with "MyServiceBusConnection".</p>
-<p>Now our code is</p> 
 
+You should add some codes like this.
 <pre><code>
 using System;
 using Microsoft.Azure.WebJobs;
