@@ -69,7 +69,7 @@ output
 </code></pre>
 
 ## 6. Editting {FunctionAppName}.cs Source
-<p>Open (projectname).cs</p>
+<p>Open ~/source/azure/002.queueTriggeredFunction_tableInsert/(projectname).cs</p>
 <p>Now our codes are</p> 
 
 <pre><code>
