@@ -99,6 +99,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 namespace funcgkim0012
 {
@@ -115,7 +116,7 @@ namespace funcgkim0012
         [return: Table("gkHealthCareData")]
         public static MyHealthData Run([ServiceBusTrigger("q-gkim-02", Connection = "MyServiceBusConnection")]string myQueueItem, ILogger log)
         {
-            MyHealthData md = JsonConvert.DeserializeObject<MyHealthData>(myQueueItem);
+            MyHealthData md = JsonConvert.DeserializeObject\<MyHealthData\>(myQueueItem);
             log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
             return md;
         }
