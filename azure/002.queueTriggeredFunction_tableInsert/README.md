@@ -16,7 +16,7 @@ git remote add -f origin https://github.com/rudgh1027/cloud.git
 git config core.sparseCheckout true
 echo "azure/002.queueTriggeredFunction_tableInsert/*" >> .git/info/sparse-checkout
 git pull origin master
-cd azure/002.queueTriggeredFunction/
+cd azure/002.queueTriggeredFunction_tableInsert/
 
 </code></pre>
 
