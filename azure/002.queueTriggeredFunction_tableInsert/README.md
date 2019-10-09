@@ -3,7 +3,7 @@
 ## Architecture
 <img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-function.png"></img>
 <p>It implements <b>https://github.com/rudgh1027/cloud/tree/master/azure/001.queueTriggeredFunction</b></p>
-<p>So, you must create all resource and dotnet application project in previous practice, <b>https://github.com/rudgh1027/cloud/tree/master/azure/001.queueTriggeredFunction</b></p>
+<p>So, I recommand you to follow everything in previous practice, <b>https://github.com/rudgh1027/cloud/tree/master/azure/001.queueTriggeredFunction</b></p>
 
 # Procedure
 If you complete all procedure in privious practice, comtinue following procedure.
@@ -20,8 +20,36 @@ cd azure/002.queueTriggeredFunction/
 
 </code></pre>
 
+## 2. Editting Parameter Name
+<pre><code>
+## complete names of resources
+vi exported.dat
 
-## 2. Deploy Table Storage
+</code></pre>
+
+## 3. Deploy Service Bus Queue and Azure Function App
+Just run
+<pre><code>
+## deploy queue
+./deployq.sh
+## deploy function app
+./deployFunc.sh
+
+</code></pre>
+
+## 4. Make Project
+<pre><code>
+./makeProj.sh
+## Select a worker runtime:
+## 1. dotnet
+## 2. node
+## 3. python
+## 4. powershell (preview)
+## Choose option: 1            Select 1
+
+</code></pre>
+
+## 5. Deploy Table Storage
 
 <pre><code>
 az storage table create --name {yourTableStorageName} --account-name {yourStorageAccountName}
@@ -40,7 +68,7 @@ output
 
 </code></pre>
 
-## 3. Editting {FunctionAppName}.cs Source
+## 6. Editting {FunctionAppName}.cs Source
 <p>Open (projectname).cs</p>
 <p>Now our codes are</p> 
 
@@ -97,7 +125,7 @@ namespace funcgkim0012
 </code></pre>
 <small>reference: https://docs.microsoft.com/ko-kr/azure/azure-functions/functions-bindings-storage-table</small>
 
-## 4. Import Nuget Package
+## 7. Import Nuget Package
 <pre><code>
 ## In your azure cloud shell, cd ..../{yourfunctionapp}/
 ## Import package of webjobs storage extension
@@ -106,7 +134,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 dotnet add package Newtonsoft.Json --version 11.0.2
 
 </code></pre>
-## 5. Local Build
+## 8. Local Build
 <pre><code>
 ## bash
 func start --build
@@ -125,7 +153,7 @@ Parameter name: provider
 <p>This error was occured because visual studio code and package version didn't match.</p>
 <p>I recommand 3.0.4 version</p>
 
-### 5.1 Test_1
+### 8.1 Test_1
 Go to "~/source/azure/001.queueTriggeredFunction/sender/"
 <p>Open Program.cs</p>
 <pre><code>
@@ -144,7 +172,7 @@ dotnet run
 </code></pre>
 In your terminal running azure function app project, you can see a message log.
 
-## 6. Deploy To Azure Function
+## 9. Deploy To Azure Function
 Go to "~/source/azure/001.queueTriggeredFunction/{FunctionAppName}"
 <pre><code>
 ## bash
@@ -152,7 +180,7 @@ func azure functionapp publish {FunctionAppName}
 
 </code></pre>
 
-### 6.1 Test_2
+### 9.1 Test_2
 Go to "~/source/azure/001.queueTriggeredFunction/sender/"
 <pre><code>
 ## bash
