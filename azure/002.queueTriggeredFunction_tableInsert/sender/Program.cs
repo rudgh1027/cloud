@@ -11,8 +11,8 @@ namespace sender
 {
     class Program
     {
-        static string ServiceBusConnectionString="Endpoint=sb://ns-gkim-02.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=uA87z/Cad9/7Okx8B/jIZvEHosV8xnhXnXhhTDpLE9Y=";
-        static string QueueName="q-gkim-02"; 
+        static string ServiceBusConnectionString="";
+        static string QueueName=""; 
         static IQueueClient queueClient;
 
         class MyHealthData
