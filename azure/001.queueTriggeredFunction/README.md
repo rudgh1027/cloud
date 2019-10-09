@@ -50,7 +50,7 @@ Just run
 
 ## 5. Editting {FunctionAppName}.cs Source
 Now we can see Visual Studio code edittor.
-Open (projectname).cs
+Open ~/source/azure/001.queueTriggeredFunction/(projectname).cs
 <pre><code>
 using System;
 using Microsoft.Azure.WebJobs;
@@ -80,6 +80,7 @@ using System;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
+using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 namespace funcgkim0012
 {
@@ -95,14 +96,22 @@ namespace funcgkim0012
 
 </code></pre>
 
-## 6. Local Build
+## 6. Import Nuget Package
+<pre><code>
+## In your azure cloud shell, cd ..../{yourfunctionapp}/
+## Import package of webjobs storage extension
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+
+</code></pre>
+
+## 7. Local Build
 <pre><code>
 ## bash
 func start --build
 
 </code></pre>
 
-### 6.1 Test_1
+### 7.1 Test_1
 Go to "~/source/azure/001.queueTriggeredFunction/sender/"
 <p>Open Program.cs and insert your queue name and connectionString.</p>
 <pre><code>
@@ -122,7 +131,7 @@ dotnet run
 </code></pre>
 In your terminal running azure function app project, you can see a message log.
 
-## 7. Deploy To Azure Function
+## 8. Deploy To Azure Function
 Go to "~/source/azure/001.queueTriggeredFunction/{FunctionAppName}"
 <pre><code>
 ## bash
@@ -130,7 +139,7 @@ func azure functionapp publish {FunctionAppName}
 
 </code></pre>
 
-### 7.1 Test_2
+### 8.1 Test_2
 Go to "~/source/azure/001.queueTriggeredFunction/sender/"
 <pre><code>
 ## bash
