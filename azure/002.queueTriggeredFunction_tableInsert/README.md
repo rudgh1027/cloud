@@ -116,7 +116,7 @@ namespace funcgkim0012
         [return: Table("gkHealthCareData")]
         public static MyHealthData Run([ServiceBusTrigger("q-gkim-02", Connection = "MyServiceBusConnection")]string myQueueItem, ILogger log)
         {
-            MyHealthData md = JsonConvert.DeserializeObject\<MyHealthData\>(myQueueItem);
+            MyHealthData md = JsonConvert.DeserializeObject&lt;MyHealthData&gt;(myQueueItem);
             log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
             return md;
         }
