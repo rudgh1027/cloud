@@ -3,14 +3,14 @@
 ## Architecture
 <img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-function.png"></img>
 <p>It implements <b>https://github.com/rudgh1027/cloud/tree/master/azure/001.queueTriggeredFunction</b></p>
-<p>So, I recommand you to follow everything in previous practice, <b>https://github.com/rudgh1027/cloud/tree/master/azure/001.queueTriggeredFunction</b></p>
+<p>So, I recommand you to follow everything in previous practice.</p>
 
 # Procedure
 If you complete all procedure in privious practice, comtinue following procedure.
 
 ## 1. Get source from github
 <pre><code>
-git init {source}           #{source} can be replaced with other directory name you want
+git init source           #source can be replaced with other directory name you want
 cd source
 git remote add -f origin https://github.com/rudgh1027/cloud.git
 git config core.sparseCheckout true
