@@ -8,10 +8,24 @@
 # Procedure
 If you complete all procedure in privious practice, comtinue following procedure.
 
-## Deploy Table Storage
+## 1. Get source from github
+<pre><code>
+git init {source}           #{source} can be replaced with other directory name you want
+cd source
+git remote add -f origin https://github.com/rudgh1027/cloud.git
+git config core.sparseCheckout true
+echo "azure/002.queueTriggeredFunction/*" >> .git/info/sparse-checkout
+git pull origin master
+cd azure/002.queueTriggeredFunction/
+
+</code></pre>
+
+
+## 2. Deploy Table Storage
 
 <pre><code>
 az storage table create --name {yourTableStorageName} --account-name {yourStorageAccountName}
+
 </code></pre>
 
 You can reuse storage account already created in previous practice.
@@ -23,9 +37,10 @@ output
 {
   "created": true
 }
+
 </code></pre>
 
-## Editting {FunctionAppName}.cs Source
+## 3. Editting {FunctionAppName}.cs Source
 <p>Open (projectname).cs</p>
 <p>Now our codes are</p> 
 
@@ -46,6 +61,7 @@ namespace funcgkim0012
         }
     }
 }
+
 </code></pre>
 
 You should add some codes like this.
@@ -54,41 +70,47 @@ using System;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace funcgkim0012
 {
-    //Define entity
-    public class MyPoco
+    public class MyHealthData
     {
         public string PartitionKey { get; set; }
         public string RowKey { get; set; }
-        public string Text { get; set; }
+        public int heat { get; set; }
+        public int heartbaet { get; set; }
     }
     public static class funcgkim0012
     {
-        // Change return type as MyPoco and declare [return: Table("MyTable")]
         [FunctionName("funcgkim0012")]
-        [return: Table("MyTable")]
-        public static MyPoco Run([ServiceBusTrigger("yourqueuename", Connection = "MyServiceBusConnection")]string myQueueItem, ILogger log)
+        [return: Table("gkHealthCareData")]
+        public static MyHealthData Run([ServiceBusTrigger("q-gkim-02", Connection = "MyServiceBusConnection")]string myQueueItem, ILogger log)
         {
+            MyHealthData md = JsonConvert.DeserializeObject<MyHealthData>(myQueueItem);
             log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-            //Return entity
-            return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
+            return md;
         }
     }
 }
+
 </code></pre>
 <small>reference: https://docs.microsoft.com/ko-kr/azure/azure-functions/functions-bindings-storage-table</small>
 
-## Import Nuget Package
+## 4. Import Nuget Package
 <pre><code>
 ## In your azure cloud shell, cd ..../{yourfunctionapp}/
+## Import package of webjobs storage extension
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+## Import package of Json
+dotnet add package Newtonsoft.Json --version 11.0.2
+
 </code></pre>
-## Local Build
+## 5. Local Build
 <pre><code>
 ## bash
 func start --build
+
 </code></pre>
 
 If error occur saying 
@@ -103,7 +125,7 @@ Parameter name: provider
 <p>This error was occured because visual studio code and package version didn't match.</p>
 <p>I recommand 3.0.4 version</p>
 
-### Test_1
+### 5.1 Test_1
 Go to "~/source/azure/001.queueTriggeredFunction/sender/"
 <p>Open Program.cs</p>
 <pre><code>
@@ -111,25 +133,29 @@ Go to "~/source/azure/001.queueTriggeredFunction/sender/"
       static string ServiceBusConnectionString="....";
       static string QueueName="..."; 
 ...
+
 </code></pre>
 Insert your queue name and connectionString.
 Save and run "dotnet run"
 <pre><code>
 ## bash
 dotnet run
+
 </code></pre>
 In your terminal running azure function app project, you can see a message log.
 
-## Deploy To Azure Function
+## 6. Deploy To Azure Function
 Go to "~/source/azure/001.queueTriggeredFunction/{FunctionAppName}"
 <pre><code>
 ## bash
 func azure functionapp publish {FunctionAppName}
+
 </code></pre>
 
-### Test_2
+### 6.1 Test_2
 Go to "~/source/azure/001.queueTriggeredFunction/sender/"
 <pre><code>
 ## bash
 dotnet run
+
 </code></pre>
