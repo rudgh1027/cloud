@@ -45,7 +45,7 @@ https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_
 - 개인적인 생각
   - 제공된 사용 예시처럼 단순 스토리지 앞단에서 쓰기용 버퍼로서의 기능은 무의미함(Radis cache를 사용)
   - 참조 : https://azure.microsoft.com/ko-kr/services/cache/
-  - 사용량 예측을 위한 POC 기간에 사용하도록하고, 추가로 다음과 같은 시스템에서 사용시 부하 평준화 패턴으로서 의미가 있다고 생각함.
+  - <p>사용량 예측을 위한 POC 기간에 사용하도록하고, 추가로 다음과 같은 시스템에서 사용시 <b>부하 평준화 패턴으로서 의미</b>가 있다고 생각함.</p>
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
     - 참조 : https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/newsfeed-ingestion
     - 여러 API를 순차적으로 거쳐가며 작업이 수행 됨
