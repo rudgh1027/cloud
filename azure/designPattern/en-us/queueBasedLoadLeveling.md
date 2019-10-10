@@ -45,6 +45,6 @@ https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_
 - personal perspective
   - Provided example has no meaning as architecture designed pettern. If you want to use resources that can be IO buffer, Redis cache is better.
   - reference : https://azure.microsoft.com/en-us/services/cache/
-  - This pettern can be used POC system or data analyzing systems bottleneck can be occur.
+  - This pettern can be used POC system or data analyzing systems bottleneck can occur.
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
   - reference : https://docs.microsoft.com/en-us/azure/architecture/example-scenario/ai/newsfeed-ingestion
