@@ -49,5 +49,5 @@ https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
   - reference : https://docs.microsoft.com/en-us/azure/architecture/example-scenario/ai/newsfeed-ingestion
   - Work is performed by passing through several APIs sequentially.
-  - If certain API faces disorder or buttleneck, Queues take a role as buffer for load leveling.
+  - If certain API faces disorder or bottleneck, Queues take a role as buffer for load leveling.
   - If you implement this system using circuit-breaker and retry pattern, availability and efficiency will be maximized.
