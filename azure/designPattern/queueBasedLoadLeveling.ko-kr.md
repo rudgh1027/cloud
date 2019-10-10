@@ -31,14 +31,20 @@
 - Datastore는 Azure table storage로 구현
 - Case 1 : Console application -> Table storage (10만건 데이터 송신시 n건 작업 실패 예상)
 - Case 2 : Console application -> Service bus queue -> Function app -> Table storage
-           (Queue가 buffer 역할을 하여 정상 작업 수행 예상)
+           <p>(Queue가 buffer 역할을 하여 정상 작업 수행 예상)</p>
 
 ## 2. 실제 구현
 다음 링크에 구현되어 있음
-https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_tableInsert/README.md
+<p>https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_tableInsert/README.md</p>
 
 # Lessen & Learn
 - Case 1은 구현하지 않음
-    - 장애유발 불가 : Console appication을 통해 Queue에 데이터 쌓는 속도 초당 1~2건 인 것에 반해, Table storage는 초당 1kb 데이터 20,000건 보장
-    - Table storage보다는 CosmosDB권장 : 10,000,000 이상 TPS 보장, 장애 복구 및 복제 등 (참조 : https://docs.microsoft.com/ko-kr/azure/cosmos-db/table-support)
-- 디자인 패턴으로서 이점은 POC 환경에서만 의미를 가질 것으로 보임
+  - 장애유발 불가 : Console appication을 통해 Queue에 데이터 쌓는 속도 초당 1~2건 인 것에 반해, Table storage는 초당 1kb 데이터 20,000건 보장
+  - Table storage보다는 CosmosDB권장 : 10,000,000 이상 TPS 보장, 장애 복구 및 복제 등 
+  <p>참조 : https://docs.microsoft.com/ko-kr/azure/cosmos-db/table-support</p>
+- 개인적인 생각
+  - 제공된 사용 예시처럼 단순 스토리지 앞단에서 쓰기용 버퍼로서의 기능은 무의미함(Radis cache를 사용)
+   <p>참조 : https://azure.microsoft.com/ko-kr/services/cache/</p>
+  - POC 환경 또는 데이터 분석 등 병목이 일어날 가능성이 있는 서비스에서 사용
+   <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
+   <p>참조 : https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/newsfeed-ingestion</p>
