@@ -2,6 +2,7 @@
 
 ## Architecture
 <img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-function.png"></img>
+<p>I'll use <b>azure table storage</b> as datastore and <b>console application program</b> as web app.</p>
 <p>It implements <b>https://github.com/rudgh1027/cloud/tree/master/azure/001.queueTriggeredFunction</b></p>
 <p>So, I recommand you to follow everything in previous practice.</p>
 
