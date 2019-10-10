@@ -30,7 +30,8 @@
 - 심박수와 체온을 초단위로 전송하는 Health Care 시스템을 가정
 - Datastore는 Azure table storage로 구현
 - Case 1 : Console application -> Table storage (10만건 데이터 송신시 n건 작업 실패 예상)
-- Case 2 : Console application -> Service bus queue -> Function app -> Table storage<br></br>(Queue가 buffer 역할을 하여 정상 작업 수행 예상)
+- Case 2 : Console application -> Service bus queue -> Function app -> Table storage
+           (Queue가 buffer 역할을 하여 정상 작업 수행 예상)
 
 ## 2. 실제 구현
 다음 링크에 구현되어 있음
