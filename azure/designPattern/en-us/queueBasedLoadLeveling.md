@@ -45,6 +45,9 @@ https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_
 - personal perspective
   - Provided example has no meaning as architecture designed pettern. If you want to use resources that can be IO buffer, Redis cache is better.
   - reference : https://azure.microsoft.com/en-us/services/cache/
-  - This pettern can be used POC system or data analyzing systems bottleneck can occur.
+  - This pettern should be used during POC period. In addition, I think it also makes sense as Load Leveling Pattern in case of following system.
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
   - reference : https://docs.microsoft.com/en-us/azure/architecture/example-scenario/ai/newsfeed-ingestion
+  - Work is performed by passing through several APIs sequentially.
+  - If certain API faces disorder or buttleneck, Queues take a role as buffer for load leveling.
+  - If you implement this system using circuit-breaker and retry pattern, availability and efficiency will be maximized.
