@@ -38,6 +38,8 @@ kubectl create deployment nginx --image=nginx:1.10.0
 - <code>kubectl get pods </code> : View all running containers
 - <code>kubectl expose</code> : Expose running container outside of Kubernetes
 <pre><code>
+// Create an externel load balancer with PIP
 kubectl expose deployment nginx --port 80 --type LoadBalancer
 
 </code></pre>
+>> When clients call that public IP then they will be routed to the pod behind the service.
