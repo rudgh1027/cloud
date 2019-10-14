@@ -42,18 +42,18 @@ reference : https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-b
 <img src="../img/loadLeveling_tableMetric.png"></img>
 # Lessen & Learn
 - Testing on Case 1 : Pass
-- Impossible to make enough transaction : Console application can send only one or two messages to queue, but table storage can write 20-thousands of data per 1 second.
+  - Impossible to make enough transaction : Console application can send only one or two messages to queue, but table storage can write 20-thousands of data per 1 second.
 - personal perspective
-- To predict amount of usage during POC period, this pattern is proper to using(Cost-effective, stable availability)
-- Selecting SaaS product, Based on predictation of usage. (Example of NoSQL type)
-- Below 20,000 TPS : Azure table storage (Can be complemented by MQ)
-- Below 10,000,000 TPS : Azure CosmosDB (Can be complemented by MQ)
-- Over 10,000,000 TPS : Azure CosmosDB + Azure cache for Redis (https://azure.microsoft.com/en-us/services/cache/)
-- Recommend Cosmos DB rather than Azure table storage(High TPS, Recovery option ... etc)
-- reference : https://docs.microsoft.com/en-us/azure/cosmos-db/table-support
-- I think it also makes sense **as Load Leveling Pattern** in case of following example.
+  - To predict amount of usage during POC period, this pattern is proper to using(Cost-effective, stable availability)
+  - Selecting SaaS product, Based on predictation of usage. (Example of NoSQL type)
+    - Below 20,000 TPS : Azure table storage (Can be complemented by MQ)
+    - Below 10,000,000 TPS : Azure CosmosDB (Can be complemented by MQ)
+    - Over 10,000,000 TPS : Azure CosmosDB + Azure cache for Redis (https://azure.microsoft.com/en-us/services/cache/)
+  - Recommend Cosmos DB rather than Azure table storage(High TPS, Recovery option ... etc)
+  - reference : https://docs.microsoft.com/en-us/azure/cosmos-db/table-support
+  - I think it also makes sense **as Load Leveling Pattern** in case of following example.
 <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
-- reference : https://docs.microsoft.com/en-us/azure/architecture/example-scenario/ai/newsfeed-ingestion
-- Work is performed by passing through several APIs sequentially.
-- If certain API faces disorder or bottleneck, Queues take a role as buffer for load leveling.
-- If you implement this system using circuit-breaker and retry pattern, availability and efficiency will be maximized.
+  - reference : https://docs.microsoft.com/en-us/azure/architecture/example-scenario/ai/newsfeed-ingestion
+  - passing through several APIs sequentially
+  - If certain API faces disorder or bottleneck, Queues take a role as buffer for load leveling.
+  - If you complement this system using circuit-breaker and retry pattern, availability and efficiency will be maximized.
