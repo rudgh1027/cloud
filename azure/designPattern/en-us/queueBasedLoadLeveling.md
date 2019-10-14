@@ -18,28 +18,28 @@ reference : https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-b
 # Use case
 
 ## 1. Faced Problem (Case 1)
-<img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-overwhelmed.png"&gt;img&gt;
+<img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-overwhelmed.png"></img>
 - Service can fail, if requests from web app to datastore are increased.
 
 ## 2. Solution (Case 2)
-<img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-function.png"&gt;img&gt;
+<img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-function.png"></img>
 - It could control writing speed to datastore using Service bus queue and Function app.
 
 # Example
 ## 1. Plan
 - Suppose to Health care system that collects body heat and heartbeat in seconds.
 - Use Azure table storage as datastore (Because it has limit of processing transaction so that it will occur disorder)
-- Case 1 : Console application -&gt; Table storage (Several requests are expected to fail, If 100-thousands of job have been requested)
-- Case 2 : Console application -&gt; Service bus queue -&gt; Function app -&gt; Table storage
+- Case 1 : Console application -> Table storage (Several requests are expected to fail, If 100-thousands of job have been requested)
+- Case 2 : Console application -> Service bus queue -> Function app -> Table storage
 - All requests will complete due to queue as buffer.
 
 ## 2. Practice
 - It already wrote in github repository.
 - https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_tableInsert/README.md
 - Before inserting data from **service bus queue** to **Table storage** using **Azure function app**, I inserted 6000+ data to **service bus queue** in advance. (It takes 30 minutes)
-<img src="../img/loadLeveling_queueCount.png"&gt;img&gt;
+<img src="../img/loadLeveling_queueCount.png"></img>
 - And then, running **Azure function app** to put data into **Table storage** (It takes only a few seconds)
-<img src="../img/loadLeveling_tableMetric.png"&gt;img&gt;
+<img src="../img/loadLeveling_tableMetric.png"></img>
 # Lessen & Learn
 - Testing on Case 1 : Pass
 - Impossible to make enough transaction : Console application can send only one or two messages to queue, but table storage can write 20-thousands of data per 1 second.
@@ -52,7 +52,7 @@ reference : https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-b
 - Recommend Cosmos DB rather than Azure table storage(High TPS, Recovery option ... etc)
 - reference : https://docs.microsoft.com/en-us/azure/cosmos-db/table-support
 - I think it also makes sense **as Load Leveling Pattern** in case of following example.
-<img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"&gt;img&gt;
+<img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
 - reference : https://docs.microsoft.com/en-us/azure/architecture/example-scenario/ai/newsfeed-ingestion
 - Work is performed by passing through several APIs sequentially.
 - If certain API faces disorder or bottleneck, Queues take a role as buffer for load leveling.
