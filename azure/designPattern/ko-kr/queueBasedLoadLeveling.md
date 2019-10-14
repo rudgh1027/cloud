@@ -38,7 +38,7 @@
 - https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_tableInsert/README.md
 - **Azure function app**을 이용해서 **service bus queue**에 있는 데이터를 **Azure table storage**에 넣기 전에 , 미리 6000+ 개의 데이터를 **service bus queue** 에 적재 (약 30분 소요)
 <img src="../img/loadLeveling_queueCount.png"></img>
-- 그런다음에 **Azure function app**을 동작시켜서 **Table storage**에 데이터를 삽입 (1~2초 안에 작업 )
+- 그런다음에 **Azure function app**을 동작시켜서 **Table storage**에 데이터를 삽입 (1~2초 안에 )
 <img src="../img/loadLeveling_tableMetric.png"></img>
 # Lessen & Learn
 - Case 1은 구현하지 않음
