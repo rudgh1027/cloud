@@ -42,7 +42,7 @@
 <img src="../img/loadLeveling_tableMetric.png"></img>
 # Lessen & Learn
 - Case 1은 구현하지 않음
-  - 장애유발 불가 : Console appication을 통해 Queue에 데이터 쌓는 속도 초당 1~2건 인 것에 반해, Table storage는 초당 처리량 20,000건 보장
+  - 장애유발 불가 : Console appication을 통해 데이터 전송하는 속도가 초당 수십건 인 것에 반해, Table storage는 초당 처리량 20,000건 보장
 - 개인적인 생각
   - 사용량 예측을 위한 POC 기간에 해당 디자인 패턴이 적합함(비용효율적, 치솓는 트레픽에도 안정성 확보)
   - 예측된 사용량을 토대로 적합한 제품 선정 ( NoSQL 제품군 선정 예시)
