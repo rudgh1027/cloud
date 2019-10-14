@@ -1,53 +1,59 @@
-# Discribe this pattern
- reference : https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling
- 
+# Describe this pattern
+reference : https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-based-load-leveling
+
 ## 1. Feature
-    - Queue evenly transfer messages with certain speed. So that it can prevent service disorder caused by high traffic.
-    - We can also check change of scales depending on request.
-    
+- Queue evenly transfer messages with certain speed. So that it can prevent service disorder caused by high traffic.
+- We can also check change of scales depending on request.
+
 ## 2. Advantages
-    - In case of service disorder, clients could send request due to queue as buffer.
-    - We could scale number of queues and services. As a result, we could maximize availablity.
-    - We could optimize cost.vk
-    
+- In case of service disorder, clients could send request due to queue as buffer.
+- scaling up and down number of queues and services. As a result, we could maximize availability.
+- optimizing cost.
+
 ## 3. Requirement
-    - Need to control message processing speed
-    - Asynchronous messaging mechanism is needed
-    - It can be degraded because of competition caused by auto scaling
+- Need to control message processing speed
+- Asynchronous messaging mechanism is needed
+- It can be degraded because of competition caused by auto scaling.
 
 # Use case
 
-## 1. Faced Problen
-<img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-overwhelmed.png"></img>
-    - Service can fail, if requests from web app to datastore are increased
-   
-## 2. Solution
-<img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-function.png"></img>
-    - It could control writing speed to datastore using Service bus queue and Function app.
-   
+## 1. Faced Problem (Case 1)
+<img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-overwhelmed.png"&gt;img&gt;
+- Service can fail, if requests from web app to datastore are increased.
+
+## 2. Solution (Case 2)
+<img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-function.png"&gt;img&gt;
+- It could control writing speed to datastore using Service bus queue and Function app.
+
 # Example
 ## 1. Plan
 - Suppose to Health care system that collects body heat and heartbeat in seconds.
-- Use Azure table storage as datastore
-- Case 1 : Console application -> Table storage (Several request are expected to fail, If 100-thousands of job have been requested)
-- Case 2 : Console application -> Service bus queue -> Function app -> Table storage
-  - All requests will complete due to queue as buffer.
+- Use Azure table storage as datastore (Because it has limit of processing transaction so that it will occur disorder)
+- Case 1 : Console application -&gt; Table storage (Several requests are expected to fail, If 100-thousands of job have been requested)
+- Case 2 : Console application -&gt; Service bus queue -&gt; Function app -&gt; Table storage
+- All requests will complete due to queue as buffer.
 
 ## 2. Practice
-It already wrote in github repository.
-https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_tableInsert/README.md
-
+- It already wrote in github repository.
+- https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_tableInsert/README.md
+- Before inserting data from **service bus queue** to **Table storage** using **Azure function app**, I inserted 6000+ data to **service bus queue** in advance. (It takes 30 minutes)
+<img src="../img/loadLeveling_queueCount.png"&gt;img&gt;
+- And then, running **Azure function app** to put data into **Table storage** (It takes only a few seconds)
+<img src="../img/loadLeveling_tableMetric.png"&gt;img&gt;
 # Lessen & Learn
-- Tesing on Case 1 : Pass
-  - Imposible to make enough transaction : Console appication can send only one or two messages to queue, but table storage can write 20-thousands of data per 1 second.
-  - CosmosDB is recommanded rather than Table storage : over 10,000,000 TPS could be processed and guarantee of recovery...  
-  - reference : https://docs.microsoft.com/en-us/azure/cosmos-db/table-support
+- Testing on Case 1 : Pass
+- Impossible to make enough transaction : Console application can send only one or two messages to queue, but table storage can write 20-thousands of data per 1 second.
 - personal perspective
-  - Provided example has no meaning as architecture designed pettern. If you want to use resources that can be IO buffer, Redis cache is better.
-  - reference : https://azure.microsoft.com/en-us/services/cache/
-  - This pettern should be used during POC period. In addition, I think it also makes sense as Load Leveling Pattern in case of following system.
-   <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
-  - reference : https://docs.microsoft.com/en-us/azure/architecture/example-scenario/ai/newsfeed-ingestion
-  - Work is performed by passing through several APIs sequentially.
-  - If certain API faces disorder or bottleneck, Queues take a role as buffer for load leveling.
-  - If you implement this system using circuit-breaker and retry pattern, availability and efficiency will be maximized.
+- To predict amount of usage during POC period, this pattern is proper to using(Cost-effective, stable availability)
+- Selecting SaaS product, Based on predictation of usage. (Example of NoSQL type)
+- Below 20,000 TPS : Azure table storage (Can be complemented by MQ)
+- Below 10,000,000 TPS : Azure CosmosDB (Can be complemented by MQ)
+- Over 10,000,000 TPS : Azure CosmosDB + Azure cache for Redis (https://azure.microsoft.com/en-us/services/cache/)
+- Recommend Cosmos DB rather than Azure table storage(High TPS, Recovery option ... etc)
+- reference : https://docs.microsoft.com/en-us/azure/cosmos-db/table-support
+- I think it also makes sense **as Load Leveling Pattern** in case of following example.
+<img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"&gt;img&gt;
+- reference : https://docs.microsoft.com/en-us/azure/architecture/example-scenario/ai/newsfeed-ingestion
+- Work is performed by passing through several APIs sequentially.
+- If certain API faces disorder or bottleneck, Queues take a role as buffer for load leveling.
+- If you implement this system using circuit-breaker and retry pattern, availability and efficiency will be maximized.
