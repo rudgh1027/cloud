@@ -17,11 +17,11 @@
 
 # 사용 예시
 
-## 1. 문제상황
+## 1. 문제상황 (Case 1)
 <img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-overwhelmed.png"></img>
     - Web app 에서 Datastore로 직접 데이터를 전송하는 경우 요청이 증가하면 작업이 실패 할 수 있음
    
-## 2. 해결방안
+## 2. 해결방안 (Case 2)
 <img src="https://docs.microsoft.com/ko-kr/azure/architecture/patterns/_images/queue-based-load-leveling-function.png"></img>
     - Service Bus Queue와 Queue triggered azure function 을 이용하여 데이터 저장소에 전달하는 속도를 제어
    
