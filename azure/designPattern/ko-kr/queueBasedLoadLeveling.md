@@ -28,7 +28,7 @@
 # 시스템 구축 테스트
 ## 1. 테스트 계획
 - 심박수와 체온을 초단위로 전송하는 Health Care 시스템을 가정
-- Datastore는 Azure table storage로 구현
+- Datastore는 **Azure table storage**로 구현 (장애 유발을 위해 초당 트렌젝션 처리량 한계가 있는 제품 선택)
 - Case 1 : Console application -> Table storage (10만건 데이터 송신시 n건 작업 실패 예상)
 - Case 2 : Console application -> Service bus queue -> Function app -> Table storage
   - Queue가 buffer 역할을 하여 작업 정상 수행 예상
@@ -39,13 +39,17 @@ https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_
 
 # Lessen & Learn
 - Case 1은 구현하지 않음
-  - 장애유발 불가 : Console appication을 통해 Queue에 데이터 쌓는 속도 초당 1~2건 인 것에 반해, Table storage는 초당 1kb 데이터 20,000건 보장
+  - 장애유발 불가 : Console appication을 통해 Queue에 데이터 쌓는 속도 초당 1~2건 인 것에 반해, Table storage는 초당 처리량 20,000건 보장
+- 개인적인 생각
+  - 사용량 예측을 위한 POC 기간에 해당 디자인 패턴이 적합함(비용효율적, 치솓는 트레픽에도 안정성 확보)
+  - 예측된 사용량을 토대로 적합한 제품 선정
+    - 20,000 TPS 이내 : Azure table storage (MQ로 보완 가능)
+    - 10,000,000 TPS 이내 : Azure CosmosDB  (MQ로 보완 가능)
+    - 10,000,000 TPS 초과 : Azure CosmosDB + Redis Cache  (참고 : https://azure.microsoft.com/ko-kr/services/cache/)
   - Table storage보다는 CosmosDB권장 : 10,000,000 이상 TPS 보장, 장애 복구 및 복제 등 
   - 참조 : https://docs.microsoft.com/ko-kr/azure/cosmos-db/table-support
-- 개인적인 생각
-  - 제공된 사용 예시처럼 단순 스토리지 앞단에서 쓰기용 버퍼로서의 기능은 무의미함(Radis cache를 사용)
-  - 참조 : https://azure.microsoft.com/ko-kr/services/cache/
-  - <p>사용량 예측을 위한 POC 기간에 사용하도록하고, 추가로 다음과 같은 시스템에서 사용시 <b>부하 평준화 패턴으로서 의미</b>가 있다고 생각함.</p>
+
+  - 추가로 다음과 같은 시스템에서 사용시 **부하 평준화 패턴으로서 의미가 있다고 생각함.**
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
     - 참조 : https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/newsfeed-ingestion
     - 여러 API를 순차적으로 거쳐가며 작업이 수행 됨
