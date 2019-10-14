@@ -42,13 +42,12 @@ https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_
   - 장애유발 불가 : Console appication을 통해 Queue에 데이터 쌓는 속도 초당 1~2건 인 것에 반해, Table storage는 초당 처리량 20,000건 보장
 - 개인적인 생각
   - 사용량 예측을 위한 POC 기간에 해당 디자인 패턴이 적합함(비용효율적, 치솓는 트레픽에도 안정성 확보)
-  - 예측된 사용량을 토대로 적합한 제품 선정
+  - 예측된 사용량을 토대로 적합한 제품 선정 ( NoSQL 제품군 선정 예시)
     - 20,000 TPS 이내 : Azure table storage (MQ로 보완 가능)
     - 10,000,000 TPS 이내 : Azure CosmosDB  (MQ로 보완 가능)
     - 10,000,000 TPS 초과 : Azure CosmosDB + Redis Cache  (참고 : https://azure.microsoft.com/ko-kr/services/cache/)
   - Table storage보다는 CosmosDB권장 : 10,000,000 이상 TPS 보장, 장애 복구 및 복제 등 
   - 참조 : https://docs.microsoft.com/ko-kr/azure/cosmos-db/table-support
-
   - 추가로 다음과 같은 시스템에서 사용시 **부하 평준화 패턴으로서 의미가 있다고 생각함.**
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
     - 참조 : https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/newsfeed-ingestion
