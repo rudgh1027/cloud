@@ -51,6 +51,7 @@
   - 참조 : https://docs.microsoft.com/ko-kr/azure/cosmos-db/table-support
 - 사용예시 1
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/reference-architectures/app-service-web-app/images/scalable-web-app.png"></img>
+  - 참조 : https://docs.microsoft.com/ko-kr/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app
   - 백 그라운드 작업을 큐와 Function을 통해 요청하여 확장성과 가용성 확보
 
 - 사용예시 2
