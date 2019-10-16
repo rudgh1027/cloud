@@ -38,11 +38,11 @@
 - https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_tableInsert/README.md
 - **Azure function app**을 이용해서 **service bus queue**에 있는 데이터를 **Azure table storage**에 넣기 전에 , 미리 6000+ 개의 데이터를 **service bus queue** 에 적재 (약 30분 소요)
 <img src="../img/loadLeveling_queueCount.png"></img>
-- 그런다음에 **Azure function app**을 동작시켜서 **Table storage**에 데이터를 삽입 (1~2초 안에 )
+- 그런다음에 **Azure function app**을 동작시켜서 **Table storage**에 데이터를 삽입 (1~2초 내 처리 완료 됨 )
 <img src="../img/loadLeveling_tableMetric.png"></img>
 # Lessen & Learn
 - Case 1은 구현하지 않음
-  - 장애유발 불가 : Console appication을 통해 데이터 전송하는 속도가 초당 수십건 인 것에 반해, Table storage는 초당 처리량 20,000건 보장
+  - 장애유발 불가 : Console appication을 통해 데이터 전송하는 속도가 초당 수십건 인 것에 반해, Table storage는 초당 처리량 20,000건 보장(건당 데이터 크기 1KB 가정 시)
 - 개인적인 생각
   - 사용량 예측을 위한 POC 기간에 해당 디자인 패턴이 적합함(비용효율적, 치솓는 트레픽에도 안정성 확보)
   - 예측된 사용량을 토대로 적합한 제품 선정 ( NoSQL 제품군 선정 예시)
@@ -55,6 +55,5 @@
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
     - 참조 : https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/newsfeed-ingestion
     - 여러 API를 순차적으로 거쳐가며 작업이 수행 됨
-    - 특정 API에 장애 혹은 병목이 발생할 시 Queue가 Buffer 역할을 하여 부하를 조절해 줌
-    - Retry 혹은 circuit-breaker 패턴으로 추가 보완하여 시스템 전체의 가용성과 효율성을 증대시킬 수 있음
+    - 특정 API에 장애 혹은 병목이 발생할 시 Queue가 Buffer 역할을 하여 부하를 조절해 
   
