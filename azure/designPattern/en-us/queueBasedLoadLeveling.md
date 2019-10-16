@@ -51,9 +51,19 @@ reference : https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-b
     - Over 10,000,000 TPS : Azure CosmosDB + Azure cache for Redis (https://azure.microsoft.com/en-us/services/cache/)
   - Recommend Cosmos DB rather than Azure table storage(High TPS, Recovery option ... etc)
   - reference : https://docs.microsoft.com/en-us/azure/cosmos-db/table-support
-  - I think it also makes sense **as Load Leveling Pattern** in case of following example.
+- Additional Example 1 
+
 <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
+
+  - reference : https://docs.microsoft.com/ko-kr/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app
+  - Requet backgroud process using queue and function, so that it preserves scalablity and availability.
+
+- Additional Example 2 
+
+  <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
+
   - reference : https://docs.microsoft.com/en-us/azure/architecture/example-scenario/ai/newsfeed-ingestion
   - passing through several APIs sequentially
   - If certain API faces disorder or bottleneck, Queues take a role as buffer for load leveling.
   - If you complement this system using circuit-breaker and retry pattern, availability and efficiency will be maximized.
+
