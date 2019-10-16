@@ -55,5 +55,6 @@
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
     - 참조 : https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/newsfeed-ingestion
     - 여러 API를 순차적으로 거쳐가며 작업이 수행 됨
-    - 특정 API에 장애 혹은 병목이 발생할 시 Queue가 Buffer 역할을 하여 부하를 조절해 
+    - 각 단계별 데이터 분석에 필요한 시간은 단순 Insert 작업 보다 오래 걸림
+    - 특정 API에 장애 혹은 병목이 발생할 시 Queue가 Buffer 역할을 하여 부하를 조절
   
