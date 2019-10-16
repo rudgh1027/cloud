@@ -51,8 +51,10 @@
   - 참조 : https://docs.microsoft.com/ko-kr/azure/cosmos-db/table-support
 - 사용예시 1
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/reference-architectures/app-service-web-app/images/scalable-web-app.png"></img>
-   - 백 그라운드 작업을 큐와 Function을 통해 요청하여 확장성과 가용성 확보
+  - 백 그라운드 작업을 큐와 Function을 통해 요청하여 확장성과 가용성 확보
+
 - 사용예시 2
+
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
     - 참조 : https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/newsfeed-ingestion
     - 여러 API를 순차적으로 거쳐가며 작업이 수행 됨
