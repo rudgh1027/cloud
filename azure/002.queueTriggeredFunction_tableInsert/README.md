@@ -156,8 +156,8 @@ Parameter name: provider
 <p>I recommand 3.0.4 version</p>
 
 ### 8.1 Test_1
-Open another tab at your browser and open additional terminal in azure.
-<code>cd ~/source/azure/001.queueTriggeredFunction/sender/"</code>
+Open another tab at your browser and open additional terminal in azure. And then type..
+<pre><code>cd ~/source/azure/001.queueTriggeredFunction/sender/"</code></pre>
 <p>Open Program.cs</p>
 <pre><code>
 ...
