@@ -53,9 +53,9 @@ reference : https://docs.microsoft.com/en-us/azure/architecture/patterns/queue-b
   - reference : https://docs.microsoft.com/en-us/azure/cosmos-db/table-support
 - Additional Example 1 
 
-<img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
+<img src="https://docs.microsoft.com/ko-kr/azure/architecture/reference-architectures/app-service-web-app/images/scalable-web-app.png"></img>
 
-  - reference : https://docs.microsoft.com/ko-kr/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app
+  - reference : https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/scalable-web-app
   - Requet backgroud process using queue and function, so that it preserves scalablity and availability.
 
 - Additional Example 2 
