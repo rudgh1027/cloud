@@ -34,7 +34,7 @@
   - Queue가 buffer 역할을 하여 작업 정상 수행 예상
 
 ## 2. 실제 구현
-- 다음 링크에 구현하였음
+- 구현 단계 및 방법은 다음 링크에 
 - https://github.com/rudgh1027/cloud/blob/master/azure/002.queueTriggeredFunction_tableInsert/README.md
 - **Azure function app**을 이용해서 **service bus queue**에 있는 데이터를 **Azure table storage**에 넣기 전에 , 미리 6000+ 개의 데이터를 **service bus queue** 에 적재 (약 30분 소요)
 <img src="../img/loadLeveling_queueCount.png"></img>
