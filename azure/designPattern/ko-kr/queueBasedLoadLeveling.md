@@ -43,15 +43,16 @@
 # Lessen & Learn
 - Case 1은 구현하지 않음
   - 장애유발 불가 : Console appication을 통해 데이터 전송하는 속도가 초당 수십건 인 것에 반해, Table storage는 초당 처리량 20,000건 보장(건당 데이터 크기 1KB 가정 시)
-- 개인적인 생각
-  - 사용량 예측을 위한 POC 기간에 해당 디자인 패턴이 적합함(비용효율적, 치솓는 트레픽에도 안정성 확보)
-  - 예측된 사용량을 토대로 적합한 제품 선정 ( NoSQL 제품군 선정 예시)
-    - 20,000 TPS 이내 : Azure table storage (MQ로 보완 가능)
-    - 10,000,000 TPS 이내 : Azure CosmosDB  (MQ로 보완 가능)
-    - 10,000,000 TPS 초과 : Azure CosmosDB + Redis Cache  (참고 : https://azure.microsoft.com/ko-kr/services/cache/)
-  - Table storage보다는 CosmosDB권장 : 10,000,000 이상 TPS 보장, 장애 복구 및 복제 등 
+- 예측된 사용량을 토대로 적합한 제품 선정 ( NoSQL 제품군 선정 예시)
+  - 20,000 TPS 이내 : Azure table storage (MQ로 보완 가능)
+  - 10,000,000 TPS 이내 : Azure CosmosDB  (MQ로 보완 가능)
+  - 10,000,000 TPS 초과 : Azure CosmosDB + Redis Cache  (참고 : https://azure.microsoft.com/ko-kr/services/cache/)
+- Table storage보다는 CosmosDB권장 : 10,000,000 이상 TPS 보장, 장애 복구 및 복제 등 
   - 참조 : https://docs.microsoft.com/ko-kr/azure/cosmos-db/table-support
-  - 추가로 다음과 같은 시스템에서 사용시 **부하 평준화 패턴으로서 의미가 있다고 생각함.**
+- 사용예시 1
+   <img src="https://docs.microsoft.com/ko-kr/azure/architecture/reference-architectures/app-service-web-app/images/scalable-web-app.png"></img>
+   - 백 그라운드 작업을 큐와 Function을 통해 요청하여 확장성과 가용성 확보
+- 사용예시 2
    <img src="https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png"></img>
     - 참조 : https://docs.microsoft.com/ko-kr/azure/architecture/example-scenario/ai/newsfeed-ingestion
     - 여러 API를 순차적으로 거쳐가며 작업이 수행 됨
