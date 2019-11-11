@@ -15,4 +15,4 @@ reference : https://docs.microsoft.com/en-us/azure/architecture/example-scenario
 - Click azure cloud shell button on the top of the web page.
 
 - After loading Azure Cloud Shell, Type <code>az ad sp create-for-rbac --name myDevOpsScenario</code>
-※ If it says you don't have sufficiant privilige, ask your owner of subscription to give you <b>Owner</b> role or custom role that has <b>Microsoft.Authorization/roleAssignments/write</b>.
+<br></br> ※ If it says you don't have sufficiant privilige, ask your owner of subscription to give you <b>Owner</b> role or custom role that has <b>Microsoft.Authorization/roleAssignments/write</b>.
