@@ -11,15 +11,14 @@ az group create --location $loc --name $rgname
 ##############
 
 adminname=          ##### INSERT YOUR VALUE!!!!
+vmname=             ##### INSERT YOUR VALUE!!!!
 
 az vm create \
   --resource-group $rgname \
   --name $vmname \
   --image UbuntuLTS \
   --admin-username $adminname \
-  --generate-ssh-keys \
-  --vnet-name $vnetname \
-  --storage-account $storname
+  --generate-ssh-keys
 
 ####################
 ## DOCKER EXTENSION ##
